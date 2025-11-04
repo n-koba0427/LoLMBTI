@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z"/></symbol>
+  <symbol id="chev-left" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 5 9 12l6.5 7 1.5-1.3L12 12l5-5z"/></symbol>
+  <symbol id="chev-right" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 19 15 12 8.5 5 7 6.3 12 12l-5 5z"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H6v12h10zM19 5h-2v14H7v2h12z"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3v9l3-3 1.5 1.5L12 16l-4.5-5.5L9 9l3 3V3zM4 19h16v2H4z"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h3l6 7 6-7h3l-7.5 9L21 21h-3l-6-7-6 7H3l7.5-9z"/></symbol>
+  <symbol id="discord" viewBox="0 0 24 24"><path fill="currentColor" d="M19 5a13 13 0 0 0-4-1l-.2.4A12 12 0 0 1 9 4L8.8 4A13 13 0 0 0 5 5 10 10 0 0 0 3 15c2 2 4 3 6 4l.5-1.2c-.8-.3-1.5-.7-2.1-1.2.3.2.8.5 1.9.9a7 7 0 0 0 5.4 0c1.1-.4 1.6-.7 1.9-.9-.6.6-1.3 1-2.1 1.2l.5 1.2c2-.9 4-2 6-4a10 10 0 0 0-2-10zM9.5 13c-.8 0-1.5-.7-1.5-1.5S8.7 10 9.5 10s1.5.7 1.5 1.5S10.3 13 9.5 13zm5 0c-.8 0-1.5-.7-1.5-1.5S13.7 10 14.5 10s1.5.7 1.5 1.5S15.3 13 14.5 13z"/></symbol>
+</svg>

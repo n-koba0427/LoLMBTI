@@ -1,4 +1,3 @@
-// ページング設定
 const PER_PAGE = 6;
 let page = 1;
 const maxPage = Math.ceil(LOL_ITEMS.length / PER_PAGE);
@@ -22,10 +21,7 @@ function renderPage() {
       const input = document.createElement('input');
       input.type='radio'; input.name=`q${item.id}`; input.id=id; input.value=(i+1);
       input.checked = (answers[item.id]===i+1);
-      input.addEventListener('change', ()=>{
-        answers[item.id] = i+1;
-        updateProgress();
-      });
+      input.addEventListener('change', ()=>{ answers[item.id] = i+1; updateProgress(); });
       label.appendChild(input);
       const span = document.createElement('span'); span.textContent = `${i+1} ${lab}`;
       label.appendChild(span);
@@ -55,7 +51,6 @@ function ensurePageAnswered() {
 }
 
 function computeAndSave() {
-  // 採点：左側(E/S/T/J)の得点化。逆転（pol=-1）は 6-v。
   const buckets = { EI:[], SN:[], TF:[], JP:[] };
   LOL_ITEMS.forEach(it=>{
     const v = answers[it.id];
@@ -68,16 +63,13 @@ function computeAndSave() {
   const type = [l1,l2,l3,l4].map(x=>x.length===1?x:x.toUpperCase()[0]).join('');
   const borderDims = Object.entries(avg).filter(([,v])=>Math.abs(v-3)<0.15).map(([k])=>k);
   const payload = { avg, type, borderDims, ts: Date.now() };
-  localStorage.setItem('lolmbti_result', JSON.stringify(payload));
-  // 回答の保存（必要なら）：localStorage.setItem('lolmbti_answers', JSON.stringify(answers));
+  localStorage.setItem('loltype_result', JSON.stringify(payload));
   location.href = 'result.html';
 }
 
 window.addEventListener('DOMContentLoaded', ()=>{
   renderPage();
-  document.getElementById('prevBtn').addEventListener('click', ()=>{
-    if (page>1) { page--; renderPage(); window.scrollTo(0,0); }
-  });
+  document.getElementById('prevBtn').addEventListener('click', ()=>{ if (page>1) { page--; renderPage(); window.scrollTo(0,0); } });
   document.getElementById('nextBtn').addEventListener('click', ()=>{
     if (!ensurePageAnswered()) { alert('未回答の項目があります。'); return; }
     if (page<maxPage) { page++; renderPage(); window.scrollTo(0,0); }

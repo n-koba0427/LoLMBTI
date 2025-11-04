@@ -1,4 +1,4 @@
-// 24項目（前提：MBTI4次元を“参考”、採点は左側を+方向に逆転処理）
+// 設問（24問／5件法／逆転あり）
 window.LOL_ITEMS = [
     {id:1,  text:"自分から積極的にショットコールする。", dim:"EI", pol:+1},
     {id:2,  text:"チャットやピングは必要最低限しかしない。", dim:"EI", pol:-1},
@@ -29,41 +29,82 @@ window.LOL_ITEMS = [
     {id:24, text:"試合中の予定はよく変えるし、それを楽しめる。", dim:"JP", pol:-1},
   ];
   
+  // タイプ名とインサイト（配信用キャッチを濃く）
   window.TYPE_NAMES = {
-    ENTJ:"指揮官ショットコーラー",
-    ENFJ:"チームメンタル司令塔",
-    ENTP:"発明家タイプ",
-    ENFP:"ハイテンション・ローマー",
-    ESTJ:"オブジェクト監督官",
-    ESFJ:"応援隊長サポート",
-    ESTP:"機を見るスノーボーラー",
-    ESFP:"パーティーファイター",
-    INTJ:"マクロ将軍",
-    INFJ:"静かな勝ち筋ガイド",
-    INTP:"理論クラフター",
-    INFP:"心のサポーター",
-    ISTJ:"視界管理官",
-    ISFJ:"守護天使サポート",
-    ISTP:"状況打破の外科医",
-    ISFP:"スタイリッシュアサシン"
+    ENTJ:"指揮官ショットコーラー", ENFJ:"チームメンタル司令塔",
+    ENTP:"発明家タイプ", ENFP:"ハイテンション・ローマー",
+    ESTJ:"オブジェクト監督官", ESFJ:"応援隊長サポート",
+    ESTP:"機を見るスノーボーラー", ESFP:"パーティーファイター",
+    INTJ:"マクロ将軍", INFJ:"静かな勝ち筋ガイド",
+    INTP:"理論クラフター", INFP:"心のサポーター",
+    ISTJ:"視界管理官", ISFJ:"守護天使サポート",
+    ISTP:"状況打破の外科医", ISFP:"スタイリッシュアサシン"
   };
   
   window.TYPE_INSIGHTS = {
-    ENTJ:["視界→構図→合図の順に設計してズレを最小化。","カウントダウンで味方の準備を揃える。"],
-    ENFJ:["雰囲気を温めDPSも上げる。","自己犠牲し過ぎず撤退合図もセットで。"],
-    ENTP:["奇襲は“失敗しても損が小さい設計”で連発。","情報差で撹乱しよう。"],
-    ENFP:["ロームで場を動かすムードメーカー。","視界に寄ってからブースト。"],
-    ESTJ:["定石/優先度/タイミングの鬼。","例外条件を事前合意して好機を逃さない。"],
-    ESFJ:["ケア/ピール/声かけでチームの心拍を整える。","“無理しない文化”の号令役に。"],
-    ESTP:["好機に牙、撤退も速く。","“もう一波”はHP/スキル状況と相談。"],
-    ESFP:["場を温めるスターター。","倒したらすぐリセット（視界/リコール）。"],
-    INTJ:["スプリットと合流ルートを二段構え。","孤立死を避ける合図とTP管理。"],
-    INFJ:["少手数で勝ち筋を引く。","要点だけ短く共有。"],
-    INTP:["理詰めで最適化→小規模ABテスト→採用。","机上の空論にならない検証ループを。"],
-    INFP:["雰囲気良化＋隠しキャリー。","事実ベースで優しく提案。"],
-    ISTJ:["ワードと定石で事故率削減。","優位時は“攻めの視界”に切替。"],
-    ISFJ:["延命と逆転の職人。","撤退線を先に引いておく。"],
-    ISTP:["ピンポイント介入で局面を変える。","最低限の合図と視界を。"],
+    ENTJ:["視界→構図→合図で“ズレ”をゼロに。","コールはカウントダウンで同期。"],
+    ENFJ:["味方の温度を上げてDPSも上げる。","撤退合図もセットで雰囲気崩壊を防ぐ。"],
+    ENTP:["“失敗しても損が小さい奇襲”を連発。","情報差で撹乱しよう。"],
+    ENFP:["ロームで場を回すムードメーカー。","視界に寄ってから加速。"],
+    ESTJ:["定石と優先度の交通整理役。","例外条件を決めてチャンス逃し回避。"],
+    ESFJ:["ケア/ピール/声掛けでチームを保温。","“無理しない文化”も広めよう。"],
+    ESTP:["好機に牙、撤退も速い。","“もう一波”の誘惑に勝つ設計。"],
+    ESFP:["火付け役。倒したら即リセット。","視界と帰還のテンポで差を作る。"],
+    INTJ:["サイド圧と合流ルートの二刀流。","孤立死を0にする計画性。"],
+    INFJ:["少手数で勝ち筋。","要点ショートコールで伝わる。"],
+    INTP:["理詰め→小規模A/B→即採用。","机上の空論を実データで潰す。"],
+    INFP:["良い雰囲気＋隠しキャリー。","事実ベースの優しい提案。"],
+    ISTJ:["ワードで事故率を溶かす。","優位時は“攻めの視界”に切替。"],
+    ISFJ:["延命からの逆転職人。","撤退線を先に引いておく。"],
+    ISTP:["ピンポイント介入で盤面を変える。","最低限の合図と視界を。"],
     ISFP:["美しい入りと退き。","“勝ちに寄与する美”を追求。"]
   };
+  
+  // 有名人（Worlds 2025 本戦参加チーム＋代表的コストリーマー）
+  // 参考：公式プライマー/本戦ページ/報道。データはエンタメ用タグ付け（typeTag）は編集的推定です。
+  // 公式のチーム/日程: lolesports.com（Primer 等）・本戦参加とロスターはLeaguepedia。コストリーマーは報道・公式SNS告知。
+  window.CELEB_PROS = [
+    {name:"Faker", team:"T1", role:"Mid", typeTag:"INTJ"},
+    {name:"Keria", team:"T1", role:"Support", typeTag:"ENFJ"},
+    {name:"Oner", team:"T1", role:"Jungle", typeTag:"ISTP"},
+    {name:"Gumayusi", team:"T1", role:"ADC", typeTag:"ESTP"},
+    {name:"Chovy", team:"Gen.G", role:"Mid", typeTag:"INTJ"},
+    {name:"Ruler", team:"Gen.G", role:"ADC", typeTag:"ISTJ"},
+    {name:"Canyon", team:"Gen.G", role:"Jungle", typeTag:"ESTJ"},
+    {name:"Bin", team:"BLG", role:"Top", typeTag:"ESFP"},
+    {name:"Knight", team:"BLG", role:"Mid", typeTag:"INTP"},
+    {name:"Elk", team:"BLG", role:"ADC", typeTag:"ISFP"},
+    {name:"ON", team:"BLG", role:"Support", typeTag:"ISFJ"},
+    {name:"369", team:"TES", role:"Top", typeTag:"ISTP"},
+    {name:"Kanavi", team:"TES", role:"Jungle", typeTag:"INTJ"},
+    {name:"Creme", team:"TES", role:"Mid", typeTag:"ENFP"},
+    {name:"JackeyLove", team:"TES", role:"ADC", typeTag:"ESTP"},
+    {name:"Viper", team:"HLE", role:"ADC", typeTag:"INFP"},
+    {name:"Zeka", team:"HLE", role:"Mid", typeTag:"ENTP"},
+    {name:"Tarzan", team:"AL", role:"Jungle", typeTag:"ENTJ"},
+    {name:"Caps", team:"G2", role:"Mid", typeTag:"ENFP"},
+    {name:"BrokenBlade", team:"G2", role:"Top", typeTag:"ESTP"},
+  ];
+  
+  window.CELEB_STREAMERS = [
+    {name:"Caedrel", typeTag:"ENTP", region:"EN"},
+    {name:"Doublelift", typeTag:"ESTP", region:"EN"},
+    {name:"IWillDominate", typeTag:"ENTP", region:"EN"},
+    {name:"Jankos", typeTag:"ESTJ", region:"EN"},
+    {name:"LS", typeTag:"INTJ", region:"EN"},
+    {name:"Sneaky", typeTag:"ENFP", region:"EN"},
+    {name:"YamatoCannon", typeTag:"ENFJ", region:"EN"},
+    {name:"Tyler1", typeTag:"ESTP", region:"EN"},
+    {name:"Ibai Llanos", typeTag:"ESFP", region:"ES"},
+  ];
+  
+  // マッチング（4文字一致数→降順）
+  window.findMatches = function(myType, pool, k=3){
+    const score = (t) => [...t].reduce((acc, ch, i)=> acc + (ch===myType[i]?1:0), 0);
+    const sorted = [...pool].sort((a,b)=> score(b.typeTag)-score(a.typeTag));
+    return sorted.slice(0,k).map(x=>({ ...x, match: `${score(x.typeTag)}/4` }));
+  };
+  
+  // 共有URL（公開時にドメインへ差し替え）
+  window.SHARE_BASE_URL = location.origin.startsWith('http') ? location.origin + location.pathname.replace(/result\.html$/,'') : 'https://example.com/loltype/';
   

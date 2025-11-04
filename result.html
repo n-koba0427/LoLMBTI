@@ -3,61 +3,77 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LoLタイプ診断 ― 結果</title>
+<title>LoLタイプ診断 — 結果</title>
 <link rel="stylesheet" href="assets/styles.css" />
 <script defer src="assets/data.js"></script>
-<script defer src="assets/celebrities.js"></script>
+<script defer src="assets/share.js"></script>
 <script defer src="assets/result.js"></script>
 </head>
 <body>
   <div class="wrap">
-    <header>
+    <header class="head-row">
+      <a class="btn icon ghost" href="index.html" aria-label="トップへ">
+        <svg class="ic"><use href="assets/icons.svg#home"></use></svg>
+      </a>
       <h1>診断結果</h1>
-      <p class="muted">4文字タイプと指標スコア、似ている有名人、おすすめの改善ヒントを表示します。</p>
+      <a class="btn ghost" href="test.html">もう一度受ける</a>
     </header>
 
     <section class="card">
-      <div class="result-head">
-        <span id="typePill" class="pill">----</span>
-        <span id="typeName"></span>
-      </div>
-      <p id="borderNote" class="muted"></p>
-
-      <div class="score-block">
-        <div class="score-line"><span>EI（外向⇄内向）</span><strong id="scoreEI">-</strong></div>
-        <div class="score-line"><span>SN（現実⇄直観）</span><strong id="scoreSN">-</strong></div>
-        <div class="score-line"><span>TF（思考⇄感情）</span><strong id="scoreTF">-</strong></div>
-        <div class="score-line"><span>JP（計画⇄柔軟）</span><strong id="scoreJP">-</strong></div>
+      <div class="result-hero">
+        <div class="result-badge">
+          <span id="typePill" class="type-pill">----</span>
+          <span id="typeName" class="type-name"></span>
+        </div>
+        <p id="borderNote" class="muted"></p>
       </div>
 
-      <canvas id="radar" width="440" height="440" class="chart"></canvas>
+      <div class="score-grid">
+        <div class="score-cell">
+          <canvas id="radar" width="420" height="420" class="chart"></canvas>
+        </div>
+        <div class="score-cell">
+          <div class="score-list">
+            <div class="score-line"><span>EI</span><strong id="scoreEI">-</strong><div class="bar-rail"><div id="barEI" class="bar-fill"></div></div></div>
+            <div class="score-line"><span>SN</span><strong id="scoreSN">-</strong><div class="bar-rail"><div id="barSN" class="bar-fill"></div></div></div>
+            <div class="score-line"><span>TF</span><strong id="scoreTF">-</strong><div class="bar-rail"><div id="barTF" class="bar-fill"></div></div></div>
+            <div class="score-line"><span>JP</span><strong id="scoreJP">-</strong><div class="bar-rail"><div id="barJP" class="bar-fill"></div></div></div>
+          </div>
+          <ul id="insights" class="insights"></ul>
+        </div>
+      </div>
 
       <hr/>
 
-      <h3>あなたは誰に似てる？</h3>
+      <h3>似ているプレイスタイル</h3>
       <div id="matches" class="matches"></div>
       <p class="tiny-muted">
-        ※選手は<strong>2025年Worlds参加チーム</strong>から、配信者は<strong>Worlds 2025の公式コストリーマー枠</strong>で広く報じられた人物から、タイプ傾向に基づいてアルゴリズム選定しています（敬称略）。
+        ※2025年のWorlds本戦出場チーム・ロスター、公式コストリーマーの公表・報道に基づく“参考マッチ”。最新の公式情報はLoL Esportsを参照してください。 :contentReference[oaicite:0]{index=0}
       </p>
 
       <hr/>
 
-      <h3>ワンポイント改善</h3>
-      <ul id="insights" class="insights"></ul>
-
-      <div class="controls">
-        <button id="copyBtn" class="ghost" type="button">結果テキストをコピー</button>
-        <button id="saveBtn" class="primary" type="button">結果画像を保存（PNG）</button>
-        <a class="btn" href="test.html">もう一度受ける</a>
+      <div class="share-row">
+        <button id="copyBtn" class="ghost">
+          <svg class="ic"><use href="assets/icons.svg#copy"></use></svg> 結果テキストをコピー
+        </button>
+        <button id="saveBtn" class="primary">
+          <svg class="ic"><use href="assets/icons.svg#download"></use></svg> 画像を保存（PNG）
+        </button>
+        <button id="shareX" class="btn x">
+          <svg class="ic"><use href="assets/icons.svg#x"></use></svg> Xで共有
+        </button>
+        <button id="shareDiscord" class="btn discord">
+          <svg class="ic"><use href="assets/icons.svg#discord"></use></svg> Discordへ共有
+        </button>
       </div>
 
-      <!-- 画像書き出し用の非表示キャンバス -->
-      <canvas id="shareCanvas" width="1200" height="630" style="display:none"></canvas>
+      <!-- 共有用キャンバス（横/縦 両対応）-->
+      <canvas id="shareCard" width="1200" height="630" class="hide"></canvas>
+      <canvas id="shareStory" width="1080" height="1920" class="hide"></canvas>
     </section>
 
-    <footer class="tiny-muted">
-      本ツールは教育/娯楽目的です。採用・医療・学術判定の代替にはできません。MBTI®はThe Myers‑Briggs Companyの登録商標です。
-    </footer>
+    <footer class="tiny-muted">© LoLタイプ診断 / 非公式ファンメイド。Riot Gamesの各権利は各権利者に帰属します。</footer>
   </div>
 </body>
 </html>

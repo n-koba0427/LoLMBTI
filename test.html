@@ -3,31 +3,39 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LoLタイプ診断 ― テスト</title>
+<title>LoLタイプ診断 — テスト</title>
 <link rel="stylesheet" href="assets/styles.css" />
 <script defer src="assets/data.js"></script>
 <script defer src="assets/quiz.js"></script>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>LoLタイプ診断</h1>
-      <p class="muted">5段階で直感的にお答えください。全24問（約3分）。</p>
-      <div class="progress"><div id="bar" class="bar"></div></div>
-      <p class="muted"><span id="progressCount">0</span>/24 回答済み・<span id="pageNow">1</span>/4 ページ</p>
+    <header class="head-row">
+      <a class="btn icon ghost" href="index.html" aria-label="トップへ">
+        <svg class="ic"><use href="assets/icons.svg#chev-left"></use></svg>
+      </a>
+      <h1>テスト</h1>
+      <span class="spacer"></span>
     </header>
+
+    <div class="progress stick">
+      <div id="bar" class="bar"></div>
+    </div>
+    <p class="muted sm"><span id="progressCount">0</span>/24 回答・<span id="pageNow">1</span>/4 ページ</p>
 
     <section id="quiz" class="card">
       <div id="questionArea" class="grid"></div>
       <div class="controls">
-        <button id="prevBtn" class="ghost" type="button">戻る</button>
-        <button id="nextBtn" class="primary" type="button">次へ</button>
+        <button id="prevBtn" class="ghost" type="button">
+          <svg class="ic"><use href="assets/icons.svg#chev-left"></use></svg>戻る
+        </button>
+        <button id="nextBtn" class="primary" type="button">
+          次へ<svg class="ic"><use href="assets/icons.svg#chev-right"></use></svg>
+        </button>
       </div>
     </section>
 
-    <footer class="tiny-muted">
-      データはローカルで処理されます／ブラウザの戻る操作は非推奨
-    </footer>
+    <footer class="tiny-muted">ローカルで採点・保存します。通信なし／個人情報なし。</footer>
   </div>
 </body>
 </html>

@@ -3,28 +3,55 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LoLタイプ診断（MBTIの4次元を参考）― トップ</title>
+<title>LoLタイプ診断 — あなたのプレイ気質を4文字で</title>
+<link rel="preload" href="assets/icons.svg" as="image" type="image/svg+xml" />
 <link rel="stylesheet" href="assets/styles.css" />
+<meta name="theme-color" content="#0e1117" />
+<meta name="description" content="LoLの“あるある”行動から4つの軸をスコア化。映える結果画像を自動生成してX/Discordへワンクリック共有。" />
 </head>
 <body class="bg-hero">
+  <svg class="sr-only"><use href="assets/icons.svg#"></use></svg>
+
   <header class="site-header">
-    <h1>あなたのLoLタイプを知ろう！</h1>
+    <h1 class="logo">LoLタイプ診断</h1>
     <p class="lead">
-      観戦でもソロQでも“あるある”な行動から、<br/>
-      あなたのプレイ気質を <strong>MBTIの4次元を参考</strong> に診断します。<br/>
-      24問・3分。端末内で完結、外部送信なし。
+      観戦でもソロQでも、あなたの<strong>プレイ気質</strong>を<br/>
+      4つの軸で測って <span class="mono">4文字タイプ</span> に。<br/>
+      24問・約3分。映える結果画像をその場で生成します。
     </p>
-    <a class="btn primary lg" href="test.html">テストをはじめる</a>
-    <p class="footnote">
-      ※本ツールは教育/娯楽目的の<strong>非公式</strong>コンテンツです。MBTI®はThe Myers‑Briggs Companyの登録商標であり、本サイトはこれと提携・承認関係にありません。
-    </p>
+    <div class="cta">
+      <a class="btn primary lg" href="test.html">
+        <svg class="ic"><use href="assets/icons.svg#play"></use></svg>
+        テストをはじめる
+      </a>
+      <a class="btn ghost lg" href="#how">
+        <svg class="ic"><use href="assets/icons.svg#spark"></use></svg>
+        仕組みを見る
+      </a>
+    </div>
   </header>
 
   <main class="hero-canvas">
-    <!-- 背景の六角形グリッドや発光はCSSだけで描画 -->
-    <div class="hex-layer"></div>
+    <canvas id="heroBg" width="1920" height="1080" aria-hidden="true"></canvas>
     <div class="glow glow-a"></div>
     <div class="glow glow-b"></div>
   </main>
+
+  <section id="how" class="wrap card card-translucent">
+    <h2>4つの軸で見る、LoLの“気質”</h2>
+    <ul class="pill-list">
+      <li><span class="pill">E/I</span> コミュニケーションの勢い（ショットコール/VC）</li>
+      <li><span class="pill">S/N</span> マップの読み方（定石重視/創発重視）</li>
+      <li><span class="pill">T/F</span> 判断の軸（勝率最適/協調最適）</li>
+      <li><span class="pill">J/P</span> 進め方（計画的/即興的）</li>
+    </ul>
+    <p class="tiny-muted">※本ツールはゲーム内の行動傾向を楽しみながらふりかえるためのエンタメ診断です。</p>
+  </section>
+
+  <footer class="footer">
+    <p class="tiny-muted">© LoLタイプ診断 / Fan‑made tool. Riot Gamesの公式ツールではありません。</p>
+  </footer>
+
+  <script defer src="assets/hero.js"></script>
 </body>
 </html>

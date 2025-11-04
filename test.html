@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LoLタイプ診断 ― テスト</title>
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/data.js"></script>
+<script defer src="assets/quiz.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>LoLタイプ診断</h1>
+      <p class="muted">5段階で直感的にお答えください。全24問（約3分）。</p>
+      <div class="progress"><div id="bar" class="bar"></div></div>
+      <p class="muted"><span id="progressCount">0</span>/24 回答済み・<span id="pageNow">1</span>/4 ページ</p>
+    </header>
+
+    <section id="quiz" class="card">
+      <div id="questionArea" class="grid"></div>
+      <div class="controls">
+        <button id="prevBtn" class="ghost" type="button">戻る</button>
+        <button id="nextBtn" class="primary" type="button">次へ</button>
+      </div>
+    </section>
+
+    <footer class="tiny-muted">
+      データはローカルで処理されます／ブラウザの戻る操作は非推奨
+    </footer>
+  </div>
+</body>
+</html>

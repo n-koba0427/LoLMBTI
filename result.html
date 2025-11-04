@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LoLタイプ診断 ― 結果</title>
+<link rel="stylesheet" href="assets/styles.css" />
+<script defer src="assets/data.js"></script>
+<script defer src="assets/celebrities.js"></script>
+<script defer src="assets/result.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>診断結果</h1>
+      <p class="muted">4文字タイプと指標スコア、似ている有名人、おすすめの改善ヒントを表示します。</p>
+    </header>
+
+    <section class="card">
+      <div class="result-head">
+        <span id="typePill" class="pill">----</span>
+        <span id="typeName"></span>
+      </div>
+      <p id="borderNote" class="muted"></p>
+
+      <div class="score-block">
+        <div class="score-line"><span>EI（外向⇄内向）</span><strong id="scoreEI">-</strong></div>
+        <div class="score-line"><span>SN（現実⇄直観）</span><strong id="scoreSN">-</strong></div>
+        <div class="score-line"><span>TF（思考⇄感情）</span><strong id="scoreTF">-</strong></div>
+        <div class="score-line"><span>JP（計画⇄柔軟）</span><strong id="scoreJP">-</strong></div>
+      </div>
+
+      <canvas id="radar" width="440" height="440" class="chart"></canvas>
+
+      <hr/>
+
+      <h3>あなたは誰に似てる？</h3>
+      <div id="matches" class="matches"></div>
+      <p class="tiny-muted">
+        ※選手は<strong>2025年Worlds参加チーム</strong>から、配信者は<strong>Worlds 2025の公式コストリーマー枠</strong>で広く報じられた人物から、タイプ傾向に基づいてアルゴリズム選定しています（敬称略）。
+      </p>
+
+      <hr/>
+
+      <h3>ワンポイント改善</h3>
+      <ul id="insights" class="insights"></ul>
+
+      <div class="controls">
+        <button id="copyBtn" class="ghost" type="button">結果テキストをコピー</button>
+        <button id="saveBtn" class="primary" type="button">結果画像を保存（PNG）</button>
+        <a class="btn" href="test.html">もう一度受ける</a>
+      </div>
+
+      <!-- 画像書き出し用の非表示キャンバス -->
+      <canvas id="shareCanvas" width="1200" height="630" style="display:none"></canvas>
+    </section>
+
+    <footer class="tiny-muted">
+      本ツールは教育/娯楽目的です。採用・医療・学術判定の代替にはできません。MBTI®はThe Myers‑Briggs Companyの登録商標です。
+    </footer>
+  </div>
+</body>
+</html>

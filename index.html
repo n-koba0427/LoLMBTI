@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>はじめてのサイト</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LoLタイプ診断（MBTIの4次元を参考）― トップ</title>
+<link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-  <h1>こんにちは！</h1>
-  <p>これは GitHub Pages で公開した HTML サイトです。</p>
+<body class="bg-hero">
+  <header class="site-header">
+    <h1>あなたのLoLタイプを知ろう！</h1>
+    <p class="lead">
+      観戦でもソロQでも“あるある”な行動から、<br/>
+      あなたのプレイ気質を <strong>MBTIの4次元を参考</strong> に診断します。<br/>
+      24問・3分。端末内で完結、外部送信なし。
+    </p>
+    <a class="btn primary lg" href="test.html">テストをはじめる</a>
+    <p class="footnote">
+      ※本ツールは教育/娯楽目的の<strong>非公式</strong>コンテンツです。MBTI®はThe Myers‑Briggs Companyの登録商標であり、本サイトはこれと提携・承認関係にありません。
+    </p>
+  </header>
+
+  <main class="hero-canvas">
+    <!-- 背景の六角形グリッドや発光はCSSだけで描画 -->
+    <div class="hex-layer"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </main>
 </body>
 </html>
